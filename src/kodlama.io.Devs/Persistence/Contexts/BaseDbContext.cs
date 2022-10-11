@@ -19,6 +19,7 @@ namespace Persistence.Contexts
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<GithubAddress> GithubAddresses { get; set; }
 
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
@@ -102,6 +103,16 @@ namespace Persistence.Contexts
                 a.Property(p => p.RevokedByIp).HasColumnName("RevokedByIp");
                 a.Property(p => p.ReplacedByToken).HasColumnName("ReplacedByToken");
                 a.Property(p => p.ReasonRevoked).HasColumnName("ReasonRevoked");
+
+                a.HasOne(p => p.User);
+            });
+
+            modelBuilder.Entity<GithubAddress>(a =>
+            {
+                a.ToTable("GithubAddresses").HasKey(k => k.Id);
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.UserId).HasColumnName("UserId");
+                a.Property(p => p.GithubUrl).HasColumnName("GithubUrl");
 
                 a.HasOne(p => p.User);
             });
