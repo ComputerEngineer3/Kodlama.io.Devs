@@ -10,8 +10,11 @@
     <Folder Include="Features\GithubAddresses\Constants\" />
     <Folder Include="Features\GithubAddresses\Models\" />
     <Folder Include="Features\GithubAddresses\Queries\" />
+    <Folder Include="Features\OperationClaims\Constants\" />
     <Folder Include="Features\ProgrammingLanguages\Constants\" />
     <Folder Include="Features\Technologies\Constants\" />
+    <Folder Include="Features\UserOperationClaims\Constants\" />
+    <Folder Include="Features\UserOperationClaims\Rules\" />
   </ItemGroup>
 
   <ItemGroup>
